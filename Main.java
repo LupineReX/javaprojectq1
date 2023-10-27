@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     private static final char[][] board = new char[3][3];
     private static char currentPlayer = 'X';
- // the two instance
+ // current player represents the user
     public static void main(String[] args) {
         initializeBoard();
         printBoard();
@@ -29,6 +29,7 @@ public class Main {
         }
     }
 
+    // how the code sets up the blank spots in the 3x3 grid
     public static void initializeBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -37,6 +38,7 @@ public class Main {
         }
     }
 
+    //using 2d array to print out the grid
     public static void printBoard() {
         System.out.println("-------------");
         for (int i = 0; i < 3; i++) {
@@ -48,11 +50,12 @@ public class Main {
         }
     }
 
+    // takes
     public static void playerMove(char player) {
         Scanner scanner = new Scanner(System.in);
         int row, col;
         do {
-            System.out.print("Player " + player + ", enter your move (row[1-3] col[1-3]): ");
+            System.out.print("Player " + player + ", enter your move (row[1-3] col[1-3]): Ex: 1 3 or 2 1");
             row = scanner.nextInt() - 1;
             col = scanner.nextInt() - 1;
         } while (row < 0 || row >= 3 || col < 0 || col >= 3 || board[row][col] != ' ');
