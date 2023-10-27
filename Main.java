@@ -2,9 +2,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    private static char[][] board = new char[3][3];
+    private static final char[][] board = new char[3][3];
     private static char currentPlayer = 'X';
-
+ // the two instance
     public static void main(String[] args) {
         initializeBoard();
         printBoard();
@@ -71,10 +71,7 @@ public class Main {
         if (board[0][0] == player && board[1][1] == player && board[2][2] == player) {
             return true; // Check diagonal (top-left to bottom-right)
         }
-        if (board[0][2] == player && board[1][1] == player && board[2][0] == player) {
-            return true; // Check diagonal (top-right to bottom-left)
-        }
-        return false;
+        return (board[0][2] == player) && (board[1][1] == player) && (board[2][0] == player); // Check diagonal (top-right to bottom-left)
     }
 
     public static boolean isBoardFull() {
